@@ -1,0 +1,63 @@
+-----("n\n\CONCLUSÃO DO DESAFIO 2 PROPOSTO PELA FULLCYCLE-----\n\n");
+
+
+##### DESAFIO PROPOSTO #####
+
+Desafio 02 - Dockerizando app Nest.js e Golang com gRPC
+
+FASE 02
+
+Informações do desafio
+Neste desafio, você deve pegar a aplicação do desafio 1 e integra-la com Docker Compose, ou seja, ao rodar o comando "docker compose up" já deve subir automaticamente o servidor gRPC na porta 50051.
+
+
+A segunda etapa do desafio é criar uma aplicação Nest.js que seja o gRPC client do Golang, portanto teremos uma API REST na porta 3000 que terá 2 endpoints:
+
+
+POST /products - que ao ser acessado deve fazer uma chamada rpc para o CreateProduct do Golang e devolver como resultado os dados do produto criado
+GET /products - Ao ser acessado deve fazer uma chamada rpc para o FindProducts e retornar a lista de produtos do Golang
+
+Disponibilize a aplicação Nest.js no mesmo docker-compose.yaml.
+
+
+Portanto, ao rodar o docker compose up deve subir a aplicação Golang e Nest.js automaticamente.
+
+-------------------------------------------------------------------------------------------
+
+Como testar o desafio:
+
+- Clone o repositório
+- Acesse a pasta do projeto
+- Execute o comando: docker-compose up -d
+- Acesse um HTTP client de sua preferencia (Postman, Insomnia, etc)
+- Crie uma requisição POST para o endpoint: http://localhost:3000/products com o seguinte body:
+```
+{
+    "name": "Produto Qualquer",
+    "description": "Descrição do produto Qualquer",
+    "price": 10.5
+}
+```
+obs. não esquecer de passar o header Content-Type: application/json
+
+- Crie uma requisição GET para o endpoint: http://localhost:3000/products
+
+-------------------------------------------------------------------------------------------
+Linguagens e Tecnologias utilizadas:
+    - Docker
+    - Docker Compose
+    - Golang
+    - GORM
+    - Nest.js
+    - gRPC
+    - sqlite3
+    - TypeORM
+    - Typescript
+
+Ambiente utilizado:
+    - Ubuntu 20.04.2 LTS
+    - WSL2
+
+Testes realizados:
+    - Teste de conexão com o servidor gRPC utilizando o HTTP Client do IDE GoLand
+
