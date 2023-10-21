@@ -1,5 +1,15 @@
 version: '3'
 services:
+  go_app:
+    build: ./desafiogrpc
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./desafiogrpc:/go/src/
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+
   nestjs_app:
     build: ./nestgrpc
     ports:
@@ -10,11 +20,4 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  go_app:
-    build: ./desafiogrpc
-    ports:
-      - "50051:50051"
-    volumes:
-      - ./desafiogrpc:/go/src/
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+
