@@ -9,7 +9,6 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-
   nestjs_app:
     build: ./nestgrpc
     ports:
@@ -17,7 +16,12 @@ services:
       - "3001:3001"
     volumes:
       - ./nestgrpc:/home/node/app
+      - node_modules:/home/node/app/node_modules
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+volumes:
+  node_modules:
+
 
 
