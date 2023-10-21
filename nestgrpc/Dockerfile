@@ -7,9 +7,13 @@ RUN apt update -y && \
 
 WORKDIR /home/node/app
 
-COPY package*.json ./
+COPY --chown=node package*.json ./
 
 RUN npm install
+
+COPY --chown=node ./ .
+
+RUN npm run build
 
 USER node
 
